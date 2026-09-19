@@ -24,7 +24,12 @@ def hello_github():
     def show(message: str) -> None:
         print(f"received: {message}")
 
+    @task()
+    def footer() -> None:
+        print("-- end of dag --")
+
     show(say_hello())
     footer()
+
 
 hello_github()
