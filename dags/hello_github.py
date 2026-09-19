@@ -25,6 +25,6 @@ def hello_github():
         print(f"received: {message}")
 
     show(say_hello())
-
+    footer()
 
 hello_github()
