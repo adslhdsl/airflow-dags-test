@@ -3,7 +3,7 @@
 import pendulum
 from airflow.sdk import dag, task
 
-VERSION = "v2"
+VERSION = "v3"
 
 
 @dag(
