@@ -3,7 +3,7 @@
 import pendulum
 from airflow.sdk import dag, task
 
-VERSION = "v6"
+VERSION = "v7"
 
 
 @dag(
@@ -29,6 +29,10 @@ def hello_github():
         print(f"[report] dag=hello_github version={VERSION} payload={message}")
 
     @task()
+    def audit() -> None:
+        print(f"[audit] structural change test at version={VERSION}")
+
+    @task()
     def finalize() -> None:
         print(f"[finalize] version={VERSION} done")
 
@@ -39,6 +43,7 @@ def hello_github():
     msg = say_hello()
     show(msg)
     report(msg)
+    audit()
     finalize()
     footer()
 
